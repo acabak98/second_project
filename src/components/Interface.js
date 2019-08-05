@@ -4,6 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 class Interface extends Component {
 
     render(){
+
         return (
            <div style={{textAlign:"left"}}>
                ALERTING SYSTEM
