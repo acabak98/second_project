@@ -8,6 +8,7 @@ class Interface extends Component {
         return (
            <div style={{textAlign:"left"}}>
                ALERTING SYSTEM
+
                <br/>
                Adı:
                <input
