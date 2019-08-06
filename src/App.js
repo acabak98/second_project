@@ -5,7 +5,8 @@ import Interface from './components/Interface';
 function App() {
   return (
     <div className="App">
-        <Interface>hello</Interface>
+        <Interface></Interface>
+
     </div>
   );
 }

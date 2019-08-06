@@ -1,42 +1,60 @@
 import React, {Component} from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
+
 
 class Interface extends Component {
 
     render(){
 
         return (
-           <div style={{textAlign:"left"}}>
-               ALERTING SYSTEM
+           <div>
+               <Table bordered="1" variant="dark">
+                   <thead>
+                   <tr></tr>
+                   </thead>
+                   <tbody>
+                   <tr>
+                       <td>
+                           <h2>ALERTING SYSTEM</h2>
+                           <br/>
+                           Adı: <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span>  <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span>
+                           <input
+                               type="text" name="name"
+                           />
+                           <br/>
+                           <br/>
+                           URL: <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span><span>&nbsp;&nbsp;</span>
 
-               <br/>
-               Adı:
-               <input
-                   type="text" name="title"
-               />
-               <br/>
-               URL:
-               <input
-                   type="text"
-               />
-               <br/>
-               <div>
-                   <Dropdown>
-                       HTTPS Method:
-                   <Dropdown.Toggle variant="success" id="dropdown-basic">selection</Dropdown.Toggle>
+                           <input
+                               type="text" name="url"
+                           />
+                           <br/>
+                           <br/>
+                           <div>
+                               <Dropdown>
+                                   HTTPS Method: <span>&nbsp;&nbsp;</span><span>&nbsp;&nbsp;</span>
+                                   <Dropdown.Toggle variant="danger" id="dropdown-basic">Select</Dropdown.Toggle>
 
-                   <Dropdown.Menu>
-                       <Dropdown.Item href="#/action-1">one</Dropdown.Item>
-                       <Dropdown.Item href="#/action-2">two</Dropdown.Item>
-                       <Dropdown.Item href="#/action-3">three</Dropdown.Item>
-                   </Dropdown.Menu>
-                   </Dropdown>
-               </div>
-               Kontrol Periyodu:
-               <input
-                   type="text"
-               />
-               <br/>
+                                   <Dropdown.Menu>
+                                       <Dropdown.Item href="#/action-1">Get</Dropdown.Item>
+                                   </Dropdown.Menu>
+                               </Dropdown>
+                           </div>
+                           <br/>
+                           Kontrol Periyodu: <span>&nbsp;&nbsp;</span>
+                           <input
+                               type="text" name="period"
+                           />
+                           <br/>
+                           <br/>
+                           <Button variant="outline-danger" size="lg">Kaydet</Button>
+                       </td>
+                   </tr>
+                   </tbody>
+               </Table>
+
            </div>
         );
 
