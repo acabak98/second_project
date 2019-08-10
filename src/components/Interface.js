@@ -4,13 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 
 
+
 class Interface extends Component {
 
     render(){
 
         return (
            <div>
-               <Table bordered="1" variant="dark">
+               <Table bordered variant="dark">
                    <thead>
                    <tr></tr>
                    </thead>
@@ -57,7 +58,6 @@ class Interface extends Component {
 
            </div>
         );
-
     }
 }
 
