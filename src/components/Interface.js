@@ -9,8 +9,8 @@ class Interface extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sName: null,
-            sUrl: null
+            sName: "",
+            sUrl: ""
         };
 
         this.handleInputChange1 = this.handleInputChange1.bind(this);
@@ -26,8 +26,7 @@ class Interface extends Component {
     }
 
     getUrl(){
-        axios.get(this.state.sUrl)
-            .then(res => console.log(res.data));
+        axios.post('http://localhost:8090/loyloy?name=' + this.state.sName + '&url=' + this.state.sUrl);
     }
 
     render(){
