@@ -2,10 +2,33 @@ import React, {Component} from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-
-
+import axios from "axios";
 
 class Interface extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            sName: null,
+            sUrl: null
+        };
+
+        this.handleInputChange1 = this.handleInputChange1.bind(this);
+        this.handleInputChange2 = this.handleInputChange2.bind(this);
+    }
+
+    handleInputChange1(event){
+        this.setState({sName: event.target.value});
+    }
+
+    handleInputChange2(event){
+        this.setState({sUrl: event.target.value});
+    }
+
+    getUrl(){
+        axios.get(this.state.sUrl)
+            .then(res => console.log(res.data));
+    }
 
     render(){
 
@@ -21,16 +44,24 @@ class Interface extends Component {
                            <h2>ALERTING SYSTEM</h2>
                            <br/>
                            Adı: <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span>  <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span>
-                           <input
-                               type="text" name="name"
-                           />
+                                   <input
+                                        type="text"
+                                        name="name_e"
+                                        value={this.state.sName}
+                                        onChange={this.handleInputChange1}
+                                   />
+
                            <br/>
                            <br/>
                            URL: <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;</span><span>&nbsp;&nbsp;</span>
 
                            <input
-                               type="text" name="url"
+                               type="text"
+                               name="url_e"
+                               value={this.state.sUrl}
+                               onChange={this.handleInputChange2}
                            />
+
                            <br/>
                            <br/>
                            <div>
@@ -50,7 +81,7 @@ class Interface extends Component {
                            />
                            <br/>
                            <br/>
-                           <Button variant="outline-danger" size="lg">Kaydet</Button>
+                           <Button variant="outline-danger" size="lg" onClick={() => this.getUrl()}>Kaydet</Button>
                        </td>
                    </tr>
                    </tbody>

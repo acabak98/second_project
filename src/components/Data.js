@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import axios from "axios";
+import Interface from "./Interface";
 
 export default class Data extends Component{
 
     componentDidMount(){
-        axios.get("https://jsonplaceholder.typicode.com/todos/1")
+        axios.get(Interface.state.sUrl)
             .then(res => console.log(res.data));
 
     }
