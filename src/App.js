@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import Interface from './components/Interface';
-import Data from "./components/Data";
-
+import ChartS from "./components/ChartS";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
         <Interface></Interface>
+        <ChartS></ChartS>
     </div>
   );
 }

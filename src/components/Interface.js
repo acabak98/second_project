@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import axios from "axios";
+import axios from 'axios';
+import './Interface.css';
 
 class Interface extends Component {
 
@@ -10,11 +11,13 @@ class Interface extends Component {
         super(props);
         this.state = {
             sName: "",
-            sUrl: ""
+            sUrl: "",
+            sPeriod: 0
         };
 
         this.handleInputChange1 = this.handleInputChange1.bind(this);
         this.handleInputChange2 = this.handleInputChange2.bind(this);
+        this.handleInputChange3 = this.handleInputChange3.bind(this);
     }
 
     handleInputChange1(event){
@@ -25,14 +28,19 @@ class Interface extends Component {
         this.setState({sUrl: event.target.value});
     }
 
+    handleInputChange3(event){
+        this.setState({sPeriod: event.target.value});
+    }
+
     getUrl(){
-        axios.post('http://localhost:8090/loyloy?name=' + this.state.sName + '&url=' + this.state.sUrl);
+        axios.post('http://localhost:8090/loyloy?name=' + this.state.sName + '&url=' + this.state.sUrl + '&controlPeriod=' + this.state.sPeriod);
     }
 
     render(){
 
         return (
-           <div>
+           <div className="InterfaceClass">
+               <br/>
                <Table bordered variant="dark">
                    <thead>
                    <tr></tr>
@@ -76,7 +84,10 @@ class Interface extends Component {
                            <br/>
                            Kontrol Periyodu: <span>&nbsp;&nbsp;</span>
                            <input
-                               type="text" name="period"
+                               type="text"
+                               name="period"
+                               value={this.state.sPeriod}
+                               onChange={this.handleInputChange3}
                            />
                            <br/>
                            <br/>
